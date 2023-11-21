@@ -7,17 +7,25 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final number = ref.watch(numberProvider);
-    final numberState = ref.watch(numberStateProvider);
+    // final number = ref.watch(numberProvider);
+    // final numberState = ref.watch(numberStateProvider);
+    final numbersNotifierState = ref.watch(numbersNotifierProvider);
+
     return Scaffold(
       body: Center(
-        child: Text(numberState.toString()),
+        // child: Text(numberState.toString()),
+        child: ListView.builder(
+            itemCount: numbersNotifierState.length,
+            itemBuilder: (context, index) {
+              return Text(numbersNotifierState[index].toString());
+            }),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          ref.read(numberStateProvider.notifier).state++;
+          // ref.read(numberStateProvider.notifier).state++;
+          ref.read(numbersNotifierProvider.notifier).add(2);
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
