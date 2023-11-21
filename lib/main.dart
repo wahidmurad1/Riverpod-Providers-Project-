@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_providers_project/home_page.dart';
+import 'package:riverpod_providers_project/number_change_notifier.dart';
 import 'package:riverpod_providers_project/number_state_notifier.dart';
 
 void main() {
@@ -31,4 +32,9 @@ final numberProvider = Provider<int>((ref) {
 final numberStateProvider = StateProvider<int>((ref) {
   return 100;
 });
-final numbersNotifierProvider = StateNotifierProvider<NumberStateNotifier, List<int>>((ref) => NumberStateNotifier());
+final numbersNotifierProvider = StateNotifierProvider<NumberStateNotifier, List<int>>((ref){
+  return  NumberStateNotifier();
+});
+final numbersChangeNotifierProvider = ChangeNotifierProvider<NumberChangeNotifier>((ref){
+  return  NumberChangeNotifier();
+});
