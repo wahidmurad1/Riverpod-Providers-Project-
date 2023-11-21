@@ -8,9 +8,16 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final number = ref.watch(numberProvider);
+    final numberState = ref.watch(numberStateProvider);
     return Scaffold(
       body: Center(
-        child: Text(number.toString()),
+        child: Text(numberState.toString()),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ref.read(numberStateProvider.notifier).state++;
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

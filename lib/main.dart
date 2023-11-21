@@ -27,3 +27,6 @@ class MyApp extends StatelessWidget {
 final numberProvider = Provider<int>((ref) {
   return 20;
 });
+final numberStateProvider = StateProvider<int>((ref){
+  return 100;
+});
