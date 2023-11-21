@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_providers_project/home_page.dart';
+import 'package:riverpod_providers_project/home_page2.dart';
 import 'package:riverpod_providers_project/number_change_notifier.dart';
 import 'package:riverpod_providers_project/number_state_notifier.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const HomePage2(),
     );
   }
 }
@@ -32,9 +33,15 @@ final numberProvider = Provider<int>((ref) {
 final numberStateProvider = StateProvider<int>((ref) {
   return 100;
 });
-final numbersNotifierProvider = StateNotifierProvider<NumberStateNotifier, List<int>>((ref){
-  return  NumberStateNotifier();
+final numbersNotifierProvider = StateNotifierProvider<NumberStateNotifier, List<int>>((ref) {
+  return NumberStateNotifier();
 });
-final numbersChangeNotifierProvider = ChangeNotifierProvider<NumberChangeNotifier>((ref){
-  return  NumberChangeNotifier();
+final numbersChangeNotifierProvider = ChangeNotifierProvider<NumberChangeNotifier>((ref) {
+  return NumberChangeNotifier();
+});
+final myFutureProvider = FutureProvider<int>((ref) {
+  return Future.value(4);
+});
+final myStreamProvider = StreamProvider<int>((ref) {
+  return Stream.value(40);
 });

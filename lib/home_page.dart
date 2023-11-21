@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_providers_project/main.dart';
-import 'package:riverpod_providers_project/number_change_notifier.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
